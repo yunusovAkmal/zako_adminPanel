@@ -2,9 +2,10 @@ import React from "react";
 import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import Login from "./pages/Login";
 import ErrorPage from "./pages/ErrorPage";
-import { HomeNavigate } from "./hoc/Authentication";
+// import { HomeNavigate } from "./hoc/Authentication";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+import Home from "./pages/Home";
 // import { openNotific } from "./Notifications/Notification";
 
 const App = () => {
@@ -25,7 +26,7 @@ const App = () => {
 				<Switch>
 					<Route exact key="/login" path="/login" component={Login} />
 					<Route key="/home" path="/home">
-						{HomeNavigate()}
+						<Home/>
 					</Route>
 					<Route exact path="/" key="/">
 						<Redirect to="/login" />
