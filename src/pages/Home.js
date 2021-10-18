@@ -1,14 +1,14 @@
-import { Layout } from "antd";
+import { Layout, Typography, Input, Menu, Space } from "antd";
 import React from "react";
-import { useRouteMatch } from "react-router-dom";
-import MenuDriwer from "../Components/common/MenuDriwer";
-import NavigationBar from "../Components/common/NavigationBar";
+import { Link, NavLink, useRouteMatch } from "react-router-dom";
 import ProfileDrawer from "../Components/common/ProfileDrawer";
 import Routes from "../Components/common/Routes";
 import User from "../Components/common/User";
 import { routes } from "../helpers/routes";
 
-const { Header, Content } = Layout;
+const { Search } = Input;
+const { Title } = Typography;
+const { Header, Content, Sider } = Layout;
 
 const Home = () => {
 	const { url, path } = useRouteMatch();
@@ -16,15 +16,30 @@ const Home = () => {
 	return (
 		<Layout className="home_layout">
 			<Header className="home_header">
-				<NavigationBar url={url} routes={routes} />
+				<Title level={4}>Zako IT Academy</Title>
+				<Search placeholder="Search..." allowClear style={{ width: 600 }} />
 				<User />
-				<audio></audio>
 			</Header>
-			<Content className="home_content">
-				<ProfileDrawer />
-				<MenuDriwer />
-				<Routes path={path} routes={routes} />
-			</Content>
+			<Layout style={{width:'100%'}}>
+				<Sider className="home_sider">
+					<Menu className='sider_menu'>
+						{routes.map((route) => (
+							<Menu.Item key={route.name}>
+								<Link className="menuLink" key={url + route.path} to={url + route.path}>
+									<Space size="middle">
+										{route.icon}
+										{route.name}
+									</Space>
+								</Link>
+							</Menu.Item>
+						))}
+					</Menu>
+				</Sider>
+				<Content className="home_content">
+					<ProfileDrawer />
+					<Routes path={path} routes={routes} />
+				</Content>
+			</Layout>
 		</Layout>
 	);
 };
