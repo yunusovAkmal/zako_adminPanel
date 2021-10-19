@@ -14,7 +14,7 @@ const User = () => {
 	);
 
 	return (
-		<Space size='middle'>
+		<Space size="middle">
 			<Badge dot>
 				<BellOutlined style={{ fontSize: "20px", color: "#08c" }} />
 			</Badge>

@@ -66,6 +66,10 @@
 .table {
 	min-width: 90%;
 }
+.table_cards_box{
+	display: flex;
+	flex-wrap: wrap;
+}
 /* title  */
 .tableTitle {
 	display: grid;
