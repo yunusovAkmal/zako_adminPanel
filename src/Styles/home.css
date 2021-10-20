@@ -5,12 +5,20 @@
 }
 
 .home_header {
-	display: grid;
-	grid-template-columns: repeat(6, auto) 1fr;
+	display: flex;
 	align-items: center;
-	background: #67006d;
-	height: 95px;
+	justify-content: space-between;
 	line-height: normal;
+	background: #ffffff;
+	padding: 5px 20px;
+	border-bottom: 0.5px solid #e9e4e4;
+}
+.home_sider {
+	height: auto;
+	background: rgb(255, 255, 255);
+}
+.sider_menu {
+	background: none;
 }
 .home_content {
 	display: flex;
@@ -28,12 +36,10 @@
 .navlink:hover {
 	color: yellow;
 }
-.active {
-	background: rgba(51, 50, 50, 0.589);
-	border-radius: 20px;
-}
+
 .user {
 	justify-self: end;
+	cursor: pointer;
 }
 .menuBtn {
 	display: none;
@@ -55,11 +61,14 @@
 /* drawer menu  */
 .menuLink {
 	font-size: 1.2rem;
-	font-family: "Lato";
 }
 
 .table {
-	min-width: 70%;
+	min-width: 90%;
+}
+.table_cards_box{
+	display: flex;
+	flex-wrap: wrap;
 }
 /* title  */
 .tableTitle {

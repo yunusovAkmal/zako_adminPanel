@@ -4,7 +4,6 @@ import { setDataSource, setHistory, setSelectData } from "../redux/reducers/data
 import Axios from "./axios";
 
 export const getDataSource = createAsyncThunk("data/getDataSource", async (url, { dispatch }) => {
-	console.log(url);
 	try {
 		const { data } = await Axios().get(url);
 		if (data) dispatch(setDataSource(data));
@@ -16,7 +15,6 @@ export const getDataSource = createAsyncThunk("data/getDataSource", async (url, 
 export const getAttantion = async ({ url }) => {
 	try {
 		const { data } = await Axios().get(url);
-		console.log("keldi", data);
 		return data ? data : [];
 	} catch {
 		ErrorMsg();
