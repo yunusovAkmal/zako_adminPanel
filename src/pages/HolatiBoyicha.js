@@ -1,65 +1,65 @@
 import React from "react";
-import { Progress } from "antd";
+import { Progress, Button } from "antd";
 const HolatiBoyicha = () => {
   return (
-    <div style={{width:"85%",margin:"0 auto"}}>
-        <div className="essential">
-        <h1 style={{marginBottom:"30px"}}>Holati bo'yicha analiz</h1>
+    <div style={{ width: "85%", margin: "0 auto" }}>
+      <div className="essential">
+        <h1 style={{ marginBottom: "50px" }}>Holati bo'yicha analiz</h1>
         <div className="entry_display_grid_holat">
           <div>
-            <h4>
-              Guruhga qo'shildi 
-            </h4>
-            <Progress  percent={10} />
+            <Button className="holat_btn" type="link">
+              Guruhga qo'shildi
+            </Button>
+            <Progress percent={10} />
           </div>
           <div>
-            <h4>
+            <Button className="holat_btn" type="link">
               O'ylab ko'radi
-            </h4>
+            </Button>
             <Progress percent={1} />
           </div>
           <div>
-            <h4>
-              Raqam xato 
-            </h4>
+            <Button className="holat_btn" type="link">
+              Raqam xato
+            </Button>
             <Progress percent={1} />
           </div>
         </div>
         <div className="entry_display_grid_holat">
           <div>
-            <h4>
-              Ketib qoldi 
-            </h4>
+            <Button className="holat_btn" type="link">
+              Ketib qoldi
+            </Button>
             <Progress percent={1} />
           </div>
           <div>
-            <h4>
+            <Button className="holat_btn" type="link">
               Probniyga keldi
-            </h4>
+            </Button>
             <Progress percent={17} />
           </div>
           <div>
-            <h4>
-              Tel qilish kerak 
-            </h4>
+            <Button className="holat_btn" type="link">
+              Tel qilish kerak
+            </Button>
             <Progress percent={1} />
           </div>
         </div>
         <div className="entry_display_grid_holat">
           <div>
-            <h4>
-              Ko'tarmadi 
-            </h4>
+            <Button className="holat_btn" type="link">
+              Ko'tarmadi
+              </Button>
             <Progress percent={1} />
           </div>
           <div>
-            <h4>
-              Rad qildi 
-            </h4>
-            <Progress percent={1}  />
+            <Button className="holat_btn" type="link">
+              Rad qildi
+              </Button>
+            <Progress percent={1} />
           </div>
         </div>
-        </div>
+      </div>
     </div>
   );
 };

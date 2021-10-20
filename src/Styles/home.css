@@ -95,13 +95,13 @@
   margin: 0;
 }
 .entry_display_grid {
-  width: 80%;
+  width: 95%;
   margin: 20px auto;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  grid-column-gap: 15px;
-  grid-row-gap: 15px;
-  grid-gap: 15px;
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 1.5rem;
+  /* grid-gap: 15px; */
 }
 .first_entry {
   display: flex;
@@ -185,7 +185,10 @@
 .extra_infos h1 {
   font-size: 45px;
 }
-
+.holat_btn{
+  color: black !important;
+  font-size: 20px !important;
+}
 /* drawer menu  */
 .menuLink {
   font-size: 1.2rem;
@@ -222,13 +225,16 @@
 .lineform,
 .chartform {
   display: flex;
+  
 }
+
+
 .downArrow {
   display: none;
 }
 .entry_display_grid_2 {
   display: grid;
-  grid-template-columns: 805px 380px;
+  grid-template-columns: 833px 395px;
   grid-column-gap: 1.5rem;
   grid-row-gap: 1.5rem;
 }
@@ -237,7 +243,7 @@
   display: grid;
   grid-template-columns: 200px 200px 200px;
   grid-column-gap: 1.5rem;
-  margin-bottom: 50px;
+  margin-bottom: 60px;
 }
 .essential {
   margin-top: 50px;

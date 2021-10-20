@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Card, Col, Row } from "antd";
+import React, { useCallback, useEffect, useState } from "react";
+import { Card, Row } from "antd";
 import { HOST } from "../server/axios";
 import axios from "axios";
 import { RingProgress } from "@ant-design/charts";
@@ -13,12 +13,8 @@ const Entry = () => {
   const [data_1, setData] = useState([]);
   const [opdata, setOpdata] = useState([]);
   const token = GetItem();
-  useEffect(() => {
-    GetStudentsWithoutGroup();
-    StudentList();
-  }, []);
 
-  const StudentList = () => {
+  const StudentList = useCallback(() => {
     axios(`${HOST}/student`, {
       headers: {
         Authorization: "Token " + token,
@@ -28,8 +24,8 @@ const Entry = () => {
         setData(object.data);
       })
       .catch((error) => console.log(error));
-  };
-  const GetStudentsWithoutGroup = () => {
+  }, [token])
+  const GetStudentsWithoutGroup = useCallback(() => {
     axios(`${HOST}/student_by_group/${0}`, {
       headers: {
         Authorization: "Token " + token,
@@ -37,8 +33,12 @@ const Entry = () => {
     }).then((res) => {
       setOpdata(res.data);
     });
-  };
-  
+  }, [token])
+  useEffect(() => {
+    GetStudentsWithoutGroup();
+    StudentList();
+  }, [GetStudentsWithoutGroup, StudentList]);
+
   var config = {
     height: 100,
     width: 100,
@@ -104,7 +104,7 @@ const Entry = () => {
   };
   return (
     <div className="home_entry">
-      <Row style={{ marginTop: "30px" }}>
+      <Row>
         <div className="entry_display_grid">
           <div className="entry_display_grid_first">
             <Card
@@ -171,7 +171,7 @@ const Entry = () => {
         </div>
         <div
           className="entry_display_grid_2"
-          style={{ width: "80%", margin: "0 auto" }}
+          style={{ width: "95%", margin: "0 auto" }}
         >
           <Card
             size="default"
@@ -181,6 +181,7 @@ const Entry = () => {
               borderRadius: "12px",
               display: "flex",
               padding: "0",
+
             }}
           >
             <HolatiBoyicha />

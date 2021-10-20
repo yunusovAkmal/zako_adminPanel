@@ -105,7 +105,7 @@ const Kuzatuvchilar = () => {
   };
   return (
     <div style={{padding:"30px"}}>
-      <Row gutter={[32, 32]}>
+      <Row gutter={[128, 64]}>
         <Col span={12}>
           <h4>Kuzatuvchilar</h4>
         </Col>

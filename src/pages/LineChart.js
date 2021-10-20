@@ -1,43 +1,46 @@
 import { Column } from "@ant-design/charts";
 import { ArrowDownOutlined, ArrowRightOutlined } from "@ant-design/icons";
-import { Input, Form,Button } from "antd";
+import { Input, Form, Button } from "antd";
 import FormItem from "antd/lib/form/FormItem";
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { HOST } from "../server/axios";
 import { GetItem } from "../helpers/localStorage";
 
 const LineChart = () => {
   const [form] = Form.useForm();
   const token = GetItem()
-  const [paystatdata,setPaystatData] = useState([])
-  const Paystat = () =>{
-    axios(HOST + '/paystat/',{
-      headers:{
-        Authorization:"TOKEN" + token
-      }
-    })
-    .then(res=>{
-      setPaystatData(res.data)
-      console.log(res.data);
-    })
-  }
-  useEffect(()=>{
+  const [paystatdata, setPaystatData] = useState([])
+  const Paystat = useCallback(
+    () => {
+      axios(HOST + '/paystat/', {
+        headers: {
+          Authorization: "TOKEN" + token
+        }
+      })
+        .then(res => {
+          setPaystatData(res.data)
+          console.log(res.data);
+        })
+    },
+    [token],
+  )
+  useEffect(() => {
     Paystat()
-  },[])
-  const changetotal = (values) =>{
-    axios(HOST +'/paystat/'+ values.start + 'to' + values.end,{
-      headers:{
-        Authorization:"TOKEN" + token
+  }, [Paystat])
+  const changetotal = (values) => {
+    axios(HOST + '/paystat/' + values.start + 'to' + values.end, {
+      headers: {
+        Authorization: "TOKEN" + token
       }
     })
-    .then(res=>{
-      setPaystatData(res.data)
-      console.log(res.data);
-      
-    })
+      .then(res => {
+        setPaystatData(res.data)
+        console.log(res.data);
+
+      })
   }
-  
+
   var paletteSemanticRed = "#F4664A";
   var brandColor = "#5B8FF9";
   var config = {
@@ -47,7 +50,7 @@ const LineChart = () => {
     seriesField: "",
     color: function color(_ref) {
       var value = _ref.qiymat;
-      if (value <=10000) {
+      if (value <= 10000) {
         return paletteSemanticRed;
       }
       return brandColor;
