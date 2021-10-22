@@ -234,7 +234,7 @@ const Entry = () => {
               cursor: "pointer",
             }}
           >
-            <LineChart />
+            <PieChart />
           </Card>
         </div>
       </Row>

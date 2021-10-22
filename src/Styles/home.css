@@ -277,9 +277,7 @@
 	}
 }
 @media screen and (max-width: 1024px) {
-  /* canvas {
-    width: 380px !important;
-  } */
+  
   .entry_stat {
     grid-template-columns: 170px 170px;
   }
@@ -380,6 +378,7 @@
 		margin-left: 1rem;
 	}
 }
+
 @media screen and (min-width: 1024px) and (max-width: 1366px) {
   .column_2 {
     width: 700px;
