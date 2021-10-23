@@ -6,7 +6,6 @@ const { Option } = Select;
 
 const SearchInput = (props) => {
 	const { dataSource } = useSelector((state) => state.data);
-	// const array = ["Volvo", "BMW", "Ford", "Mazda", "volvo", "bmassalk"];
 	const [data, setdata] = useState([]);
 
 	const handleSearch = (value) => {

@@ -1,10 +1,9 @@
 import React from "react";
-import { Button } from "antd";
+import { Button, Space } from "antd";
 import { useDispatch } from "react-redux";
 import { openModal } from "../../redux/reducers/modalSlice";
-import { FormOutlined, DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import { DeleteOutlined, EditOutlined, PlusOutlined } from "@ant-design/icons";
 import { getObj } from "../../features/rowSelection";
-import SearchInput from "./SearchInput";
 import { asyncDelete, fetchData } from "../../server/asyncLogic";
 
 const TableTitle = ({ url, form, rowSelection }) => {
@@ -12,35 +11,41 @@ const TableTitle = ({ url, form, rowSelection }) => {
 
 	return (
 		<div className="tableTitle">
-			<div id="edit_delete" className="editDeleteBtns openEditDeleteBtns">
+			<Space id="edit_delete" className="editDeleteBtns openEditDeleteBtns" size="middle">
 				<Button
+					className="table_title_btns"
 					onClick={() => {
 						dispatch(openModal({ method: "PUT", title: "Edit" }));
-						if (url === "group/") dispatch(fetchData({ url: "course/" }));
 						if (url === "course/") dispatch(fetchData({ url: "teacher/" }));
 						form.setFieldsValue(getObj());
 					}}
 					icon={<EditOutlined />}
-				/>
+				>
+					Tahrirlash
+				</Button>
 				<Button
+					className="table_title_btns"
 					onClick={() => {
 						dispatch(asyncDelete(url));
 						rowSelection.onChange();
 					}}
 					danger
 					icon={<DeleteOutlined />}
-				/>
-			</div>
+				>
+					O'chirish
+				</Button>
+			</Space>
 			<Button
+				className="table_title_btns"
 				type="primary"
-				icon={<FormOutlined />}
+				icon={<PlusOutlined />}
 				onClick={() => {
 					dispatch(openModal({ method: "POST", title: "Create" }));
-					if (url === "group/") dispatch(fetchData({ url: "course/" }));
 					if (url === "course/") dispatch(fetchData({ url: "teacher/" }));
 				}}
-			/>
-			<SearchInput style={{ width: 200 }} />
+			>
+				Yangi qo'shish
+			</Button>
 		</div>
 	);
 };

@@ -76,6 +76,7 @@ const ChoiceModal = () => {
 
 	return (
 		<Modal
+			centered
 			width={400}
 			visible={showChoice}
 			title="Multiple choice"

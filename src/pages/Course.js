@@ -1,13 +1,17 @@
-import { Select } from "antd";
+import { Select, Tabs } from "antd";
 import React from "react";
 import { useSelector } from "react-redux";
 import TableComp from "../Components/table/TableComp";
 import { CourseColumns } from "../helpers/columns";
 
+const { TabPane } = Tabs;
 const { Option } = Select;
+
 const Course = () => {
 	const { selectData = [] } = useSelector((state) => state.data);
-
+	const tabpaneChange = (key) => {
+		console.log(key);
+	};
 	let columns = [
 		...CourseColumns,
 		{
@@ -26,7 +30,16 @@ const Course = () => {
 			),
 		},
 	];
-	return <TableComp url="course/" way="course/" columns={columns} />;
+	return (
+		<Tabs defaultActiveKey="1" onChange={tabpaneChange}>
+			<TabPane tab="Offline kurslar" key="1">
+				<TableComp type="offline" url="course/" way="course/" columns={columns} />
+			</TabPane>
+			<TabPane tab="Online kurslar" key="2">
+				<TableComp type="online" url="course/" way="course/" columns={columns} />
+			</TabPane>
+		</Tabs>
+	);
 };
 
 export default Course;

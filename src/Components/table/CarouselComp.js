@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick-theme.css";
 const CarouselComp = () => {
 	const { selectData } = useSelector((state) => state.data);
 	const dispatch = useDispatch();
+
 	useEffect(() => {
 		dispatch(fetchData({ url: "/course" }));
 	}, [dispatch]);
@@ -17,10 +18,32 @@ const CarouselComp = () => {
 		speed: 600,
 		slidesToShow: 4,
 		slidesToScroll: 1,
-		arrows: true,
+		arrows: false,
+		infinite: true,
+		responsive: [
+			{
+				breakpoint: 1024,
+				settings: {
+					slidesToShow: 3,
+				},
+			},
+			{
+				breakpoint: 800,
+				settings: {
+					slidesToShow: 2,
+				},
+			},
+			{
+				breakpoint: 680,
+				settings: {
+					slidesToShow: 1,
+				},
+			},
+		],
 	};
+
 	return (
-		<div className="table_cards_box" size="middle">
+		<div className="table_cards_box">
 			<div className="Slider_container">
 				<Slider {...settings}>
 					<div key={0} className="slider_card_box">
