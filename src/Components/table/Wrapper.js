@@ -1,6 +1,7 @@
 import React from "react";
-import { Tabs } from "antd";
-import TableCards from "./TableCards";
+import {  Tabs } from "antd";
+import CarouselComp from "./CarouselComp";
+
 
 const { TabPane } = Tabs;
 
@@ -15,7 +16,7 @@ const Wrapper = ({ children }) => {
 				{children}
 			</TabPane>
 			<TabPane tab="Online kurslar" key="2">
-				<TableCards/>
+				<CarouselComp/>
 			</TabPane>
 		</Tabs>
 	);

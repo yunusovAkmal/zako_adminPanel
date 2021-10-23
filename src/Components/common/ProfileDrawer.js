@@ -55,7 +55,7 @@ const ProfileDrawer = () => {
 
   return (
     <Drawer
-      width={340}
+      width={350}
       placement="right"
       closable={true}
       onClose={() => dispatch(toogleDrawer())}
@@ -118,7 +118,7 @@ const ProfileDrawer = () => {
                 <Card
                   headStyle={{ background: "#faad14" }}
                   bodyStyle={{ background: "#eaff8f" }}
-                  title="Payment check"
+                  title={null}
                   style={{ width: 220, marginLeft: 20 }}
                   hoverable
                 >
@@ -146,7 +146,7 @@ const ProfileDrawer = () => {
                         target="_blank"
                         icon={<FilePdfOutlined />}
                       >
-                        Get pdf
+                        Get check
                       </Button>
                     </Descriptions.Item>
                   </Descriptions>

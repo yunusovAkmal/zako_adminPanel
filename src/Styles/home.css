@@ -62,14 +62,51 @@
 .menuLink {
 	font-size: 1.2rem;
 }
-
+/* table  */
 .table {
 	min-width: 90%;
 }
-.table_cards_box{
-	display: flex;
-	flex-wrap: wrap;
+/* table  */
+/* slider  */
+.table_cards_box {
+	position: relative;
+	width: 100%;
+	height: 170px;
 }
+.Slider_container {
+	position: relative;
+	width: 100%;
+	margin: 0 auto;
+	padding-bottom: 10px;
+}
+.slider_card_box {
+	position: relative;
+	padding: 10px;
+}
+.slider_card {
+	display: flex;
+	flex-direction: column;
+	padding: 10px 10px 10px 30px;
+	border-radius: 12px;
+	height: 100px;
+	background-image: url("https://wallpaperaccess.com/full/3949083.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.slider_card_Btext {
+	color: rgb(211, 211, 211);
+	font-weight: bold;
+	font-size: 1.6rem;
+}
+.slider_card_Stext {
+	color: rgb(255, 253, 253);
+	font-size: 1.2rem;
+	font-family: cursive;
+}
+
+/* slider  */
+
 /* title  */
 .tableTitle {
 	display: grid;
