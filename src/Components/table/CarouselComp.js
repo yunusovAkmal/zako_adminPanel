@@ -4,7 +4,6 @@ import { fetchData } from "../../server/asyncLogic";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import reactjpg from "../../Images/react.jpg";
 
 const CarouselComp = () => {
 	const { selectData } = useSelector((state) => state.data);
@@ -32,7 +31,7 @@ const CarouselComp = () => {
 					</div>
 					{selectData.map((item, i) => (
 						<div key={i + 1} className="slider_card_box">
-							<div className="slider_card" style={{ backgroundImage: reactjpg }}>
+							<div className="slider_card">
 								<span className="slider_card_Btext">{item.course_name}</span>
 								<span className="slider_card_Stext">kurs description</span>
 							</div>
